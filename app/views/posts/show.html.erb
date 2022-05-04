@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @post.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @post.last_name %>
+</p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @post.contact %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @post.email %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<% @post_attachments.each do |p| %>
+  <%= image_tag(p.avatar_url,width: "40", height: "40", alt: 'Avatar',title: 'Rails Application') %>
+  <%# link_to "Edit Attachment", edit_post_attachment_path(p) %>
+<% end %>
+
+<p>
+  <strong>Twitter:</strong>
+  <%= @post.twitter %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary" %> 
+<%= link_to 'Back', posts_path, class:"btn btn-secondary" %>

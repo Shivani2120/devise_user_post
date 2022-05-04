@@ -1,0 +1,28 @@
+<h2> User Profile </h2>
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">title</h5>
+    <h6 class="card-subtitle mb-2 text-muted">email small size</h6>
+      <img src="..." class="card-img-top" alt="..."><br>
+    <h6 class="card-subtitle mb-2 text-muted">discription</h6>
+    <a href="#" class="card-link">link1</a>
+    <a href="#" class="card-link">link2</a>
+    <a href="#" class="card-link">link2</a>
+
+  </div>
+</div>
+
+
+<% @posts.each do |post| %>
+    <p>
+      <strong>Title:</strong>
+      <%= post.title %>
+    </p>
+
+    <% post.post_attachments.each do |p| %>
+      <%= image_tag(p.avatar_url,width: "40", height: "40", alt: 'Avatar',title: 'Rails Application') %>
+      <%# link_to "Edit Attachment", edit_post_attachment_path(p) %>
+    <% end %>
+
+<% end %>    
