@@ -1,39 +1,29 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>First name:</strong>
-  <%= @post.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @post.last_name %>
-</p>
-
-<p>
-  <strong>Contact:</strong>
-  <%= @post.contact %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @post.email %>
-</p>
-
-<p>
   <strong>Title:</strong>
   <%= @post.title %>
 </p>
 
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+
+<!-- <p>
+  <strong>profile:</strong>
+  <%#image_tag(@post.image_url, width: "40", height: "40", alt: 'Image') %>
+</p> -->
+
 <% @post_attachments.each do |p| %>
-  <%= image_tag(p.avatar_url,width: "40", height: "40", alt: 'Avatar',title: 'Rails Application') %>
+  <%= image_tag(p.avatar_url, width: "60", height: "60", alt: 'Avatar') %>
   <%# link_to "Edit Attachment", edit_post_attachment_path(p) %>
 <% end %>
 
-<p>
-  <strong>Twitter:</strong>
-  <%= @post.twitter %>
-</p>
+<%# render @post.post_attachments %>
+
+<p><%= @post.post_likes.count %> <%= (@post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
 <%= link_to 'Edit', edit_post_path(@post), class:"btn btn-secondary" %> 
 <%= link_to 'Back', posts_path, class:"btn btn-secondary" %>

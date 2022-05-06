@@ -1,28 +1,87 @@
-<h2> User Profile </h2>
+<h2> Posts </h2>
 
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">title</h5>
-    <h6 class="card-subtitle mb-2 text-muted">email small size</h6>
-      <img src="..." class="card-img-top" alt="..."><br>
-    <h6 class="card-subtitle mb-2 text-muted">discription</h6>
-    <a href="#" class="card-link">link1</a>
-    <a href="#" class="card-link">link2</a>
-    <a href="#" class="card-link">link2</a>
-
-  </div>
-</div>
-
+  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" %>
+  
+  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" %>
+<hr>
 
 <% @posts.each do |post| %>
-    <p>
-      <strong>Title:</strong>
-      <%= post.title %>
-    </p>
 
-    <% post.post_attachments.each do |p| %>
-      <%= image_tag(p.avatar_url,width: "40", height: "40", alt: 'Avatar',title: 'Rails Application') %>
-      <%# link_to "Edit Attachment", edit_post_attachment_path(p) %>
-    <% end %>
+  <div class="card" style="width: 50%;">
+    <div class="card-body list-group-flush" >
+      <div class="list-group-item card-img-top" >
+        <% if current_user.image.present? %>
+          <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image') %>
+        <% else %>
+          <img src="..." alt="...">  
+        <% end %>
 
-<% end %>    
+        <span class="card-subtitle mb-2 " ><%= current_user.name %></span><br>
+        <span class="card-subtitle mb-2 text-muted "><%= current_user.email %></span>
+        <p class="card-text"><small><%= post.title %></small></p>
+      </div> 
+
+
+      <div class="card-title list-group-item" >
+
+        <div id="demo<%= post.id %>" class="carousel slide" data-bs-ride="carousel">
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+
+            <% post.post_attachments.each_with_index do |img, index| %>
+              <% is_active = "active" if index == 0 %>
+              <div class="carousel-item <%= is_active %>">
+                <%= image_tag(img.avatar_url,style: "widh: 100%; height: 300px;", alt: 'Avatar', class: "d-block") %>
+              </div>
+            <% end %>
+          </div>
+          
+          <!-- Left and right controls/icons -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="card-text">
+              <% pre_like = post.post_likes.find_by(user_id: current_user.id) %>
+                <% if pre_like.present? %>
+                  <%= button_to 'Unlike', post_post_like_path(post, pre_like), method: :delete %>
+                <% else %>
+                  <%= button_to 'Like', post_post_likes_path(post), method: :post, class: "card-link text-muted" %>
+                <% end %>
+           <p><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+         
+            <div>
+              <b>Comments :</b>
+              <% post.post_comments.each do |form| %>
+                <% if form.comment.present? %>
+                  <% if current_user.image.present? %>
+                    <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image') %>
+                  <% else %>
+                    <img src="..." alt="...">  
+                  <% end %>
+                <% end %>
+                <%= form.comment %><br><br>
+              <% end %>
+            </div>
+                 
+            <%= form_for [ post, post.post_comments.build] do |form| %>
+               <div>
+                  <%= form.text_field :comment %>
+               </div>  
+
+                <div class="actions">
+                 <%= form.submit %>
+                </div> 
+            <% end %>
+
+          <a href="#" class="card-link text-muted">Share</a>
+      </div>    
+    </div>
+  </div>
+  <br>
+<% end %>  

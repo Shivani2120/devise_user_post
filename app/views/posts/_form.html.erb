@@ -1,51 +1,19 @@
 <%= form_with(model: post, :html => { :multipart => true }) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :first_name %><br>
-    <%= form.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :last_name %><br>
-    <%= form.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact %><br>
-    <%= form.text_field :contact %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %><br>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label :twitter %><br>
-    <%= form.text_field :twitter %>
-  </div>
-
+ 
    <div class="field">
      <%= form.label :title %><br>
      <%= form.text_field :title %>
    </div>
 
+   <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+   
    <div class="field">
-       <%= form.label :Picture %><br>
-       <%= form.file_field :avatar, :multiple => true %>
-     </div>
-
+       <%= form.label :image %><br>
+       <%= form.file_field :avatar, multiple: 'True' %>
+  </div> 
 
   <div class="actions">
     <%= form.submit %>

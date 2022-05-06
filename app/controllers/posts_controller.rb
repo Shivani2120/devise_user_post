@@ -27,12 +27,13 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
+    @post = Post.new(post_params)
     @post = current_user.posts.new(post_params)
 
     respond_to do |format|
       if @post.save
         params[:post][:avatar].each do |a|
-          @post_attachment = @post.post_attachments.create!(:avatar => a)
+          @post.post_attachments.create!(:avatar => a)
        end
         format.html { redirect_to post_url(@post) }
       else
@@ -59,8 +60,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url}
-      format.json { head :no_content }
+      format.html { redirect_to posts_url(@post)}
     end
   end
 
@@ -72,6 +72,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:avatar, :first_name, :last_name, :contact, :email, :twitter, :user_id, :title, post_attachments_attributes: [:id, :post_id, :avatar])
+      params.require(:post).permit(:description, :title, :user_id)
     end
 end
