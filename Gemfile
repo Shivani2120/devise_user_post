@@ -58,3 +58,18 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'carrierwave', '~> 1.0'
+
+gem 'social-share-button'
+
+gem 'jquery-rails', '~> 4.3'
+
+gem 'shareable'
+
+
+gem 'client_side_validations'
+
+gem 'omniauth-google-oauth2'
+
+gem "omniauth-google", "~> 1.0"
+gem "omniauth-rails_csrf_protection", "~> 0.1.2"
+

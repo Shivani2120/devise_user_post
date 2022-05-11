@@ -7,4 +7,11 @@ class User < ApplicationRecord
   mount_uploader :image, ImageUploader 
   has_many :post_likes, dependent: :destroy 
   has_many :post_comments, dependent: :destroy
+  has_many :follows, dependent: :destroy
+
+  validates :contact, length: { minimum: 10 }
+  validates :name, presence: true
+  validates :image, presence: true
+  validates :password, presence: true
+  validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }
 end

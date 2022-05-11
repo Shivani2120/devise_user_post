@@ -15,7 +15,7 @@ class PostCommentsController < ApplicationController
        @post_comment = current_user.post_comments.find(params[:id])
        @post_comment.destroy
 
-       redirect_to root_path()
+       redirect_to root_path
     end	
   
     def post_comment
