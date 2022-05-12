@@ -64,6 +64,31 @@ class PostsController < ApplicationController
     end
   end
 
+  def like_unlike
+    @post = Post.find_by(id: params[:post_id])
+    return redirect_to root_path if @post.blank?
+    if @post.post_likes.where(user_id: current_user.id).present?
+      @button_name = "Like"
+      @post.post_likes.where(user_id: current_user.id).destroy_all
+        respond_to do |format|
+          format.html {redirect_to root_path}
+          format.js { }
+        end     
+    else
+      @post_like = current_user.post_likes.new(post_id: @post.id, user_id: current_user.id)
+      if @post_like.save
+        @button_name = "Unlike"
+        respond_to do |format|
+          format.html {redirect_to root_path}
+          format.js { }
+        end
+      else
+        redirect_to root_path
+      end
+    end
+    @like_count = @post.post_likes.count
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -74,4 +99,5 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:description, :title, :user_id)
     end
+
 end

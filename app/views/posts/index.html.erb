@@ -19,7 +19,6 @@
 
     <% @posts.each do |post| %>
       <tr> 
-        <p> 
         <td><%= post.title %></td>
         <td><%= post.description %></td>
         <td><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></td>

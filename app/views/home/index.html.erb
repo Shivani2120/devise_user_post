@@ -1,10 +1,6 @@
 
-  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" %>
-  
-  <%= stylesheet_link_tag "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" %>
-
 <% @posts.each do |post| %>
-  <div class="card container" style="width: 100%;">
+  <div class="card container" style="width: 100%;" >
     <div class="card-body list-group-flush" >
       <div class="list-group-item card-img-top" >
         <% if current_user.image.present? %>
@@ -44,13 +40,8 @@
       </div>
 
       <div class="card-text", style="display: inline;">
-              <% pre_like = post.post_likes.find_by(user_id: current_user.id) %>
-                <% if pre_like.present? %>
-                  <%= button_to 'Unlike', post_post_like_path(post, pre_like), method: :delete %>
-                <% else %>
-                  <%= button_to 'Like', post_post_likes_path(post), method: :post, class: "card-link text-muted" %>
-                <% end %>
-           <p><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+          <%= link_to (current_user.post_likes.where(post_id: post.id).present? ? 'Unlike' : "Like"), post_like_unlike_path(post), remote: true, id: "like-btn", class: "card-link text-muted" %>
+           <p id="post-count"><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
          
             <div>
       

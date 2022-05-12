@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :posts do
     resources :follows, only: [:create, :destroy]
+    get :like_unlike
   end
     
   resources :posts do
