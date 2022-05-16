@@ -1,4 +1,5 @@
-var battonName = '<%= @button_name%>'
+var battonName = '<%= @button_name %>'
 var likeCount = '<%= @like_count%>'
-$("#like-btn").html(battonName)
-$("#post-count").html(likeCount + " Likes")
+var postId = '<%= @post.id %>'
+$("#like-btn-" + postId ).html(battonName)
+$("#post-count-" + postId ).html(likeCount + " Likes")

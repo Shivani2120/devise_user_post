@@ -40,9 +40,10 @@
       </div>
 
       <div class="card-text", style="display: inline;">
-          <%= link_to (current_user.post_likes.where(post_id: post.id).present? ? 'Unlike' : "Like"), post_like_unlike_path(post), remote: true, id: "like-btn", class: "card-link text-muted" %>
-           <p id="post-count"><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
-         
+          <%= link_to (current_user.post_likes.where(post_id: post.id).present? ? 'Unlike' : "Like"), post_like_unlike_path(post), remote: true, id: "like-btn-#{post.id}", class: "card-link text-muted" %>
+           <p id=<%= "post-count-#{post.id}"%>><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+           Liked By: <%= post.like_by_users %>
+
             <div>
       
               <% post.post_comments.each do |form| %>

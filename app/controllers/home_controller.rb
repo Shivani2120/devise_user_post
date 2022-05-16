@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
+	before_action :authenticate_user!, only: [:index]
 	 def index
-	     @posts = current_user.posts.all
+	     @posts = Post.all
 	 end	
 	
 end
