@@ -1,0 +1,22 @@
+<div class=<%="com_#{post_comment.id}"%>>
+    <% if post_comment.comment.present? %>
+        <% if post_comment.user.image.present? && post_comment.user.image.url.present? %>
+
+        <%#if current_user.image.present? %>
+            <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
+        <% else %>
+            <img src="..." alt="...">  
+        <% end %>
+
+        <%= post_comment.comment %>
+
+        <% if post_comment.user_id == current_user.id %>
+        
+        <p>
+            <%=  button_to 'Delete', post_post_comment_path(post.id, post_comment.id), :method => :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+        </p><br>  
+        <% end %> 
+    <% end %>
+            
+</div>
+

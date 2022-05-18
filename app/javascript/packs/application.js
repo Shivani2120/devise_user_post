@@ -19,6 +19,22 @@ import { Tooltip, Popover } from "bootstrap"
 // The stylesheet location we created earlier
 require("../stylesheets/application.scss")
 
+require('packs/social-share-button.js.erb')
+
+// for will_paginate
+$(document).ready(function() {
+    if ($('.pagination').length) {
+      $(window).scroll(function() {
+        var url = $('.pagination .next_page').attr('href');
+        if (url && $(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+          $('.pagination').text("Please Wait...");
+          return $.getScript(url);
+        }
+      });
+      return $(window).scroll();
+    }
+  });
+
 // If you're using Turbolinks. Otherwise simply use: jQuery(function () {
 document.addEventListener("turbolinks:load", () => {
     // Both of these are from the Bootstrap 5 docs

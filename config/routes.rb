@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :follows, only: [:create, :destroy]
     get :like_unlike
-    get :like_by_users
+    get :destroy_comment
   end
     
   resources :posts do

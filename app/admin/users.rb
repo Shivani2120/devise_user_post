@@ -66,14 +66,16 @@ ActiveAdmin.register User do
 
       tab 'Advanced', html_options: { class: 'specific_css_class' } do
         f.inputs 'Advanced Details' do
-          f.input :role
+          f.input :name
+          f.input :contact
         end
       end
     end
     f.actions
   end
 
-  # filter :delivered_at_in, as: :select, label: "Notification Delivered?", collection: [["yes", "true"],["no", "false"]]
+  filter :name
+  config.per_page = 10
 
 
 end

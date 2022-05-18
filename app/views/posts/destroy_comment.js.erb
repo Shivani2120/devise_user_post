@@ -1,0 +1,7 @@
+<%# var postId = <%= @post.id %>
+<%# $("#post-" + postId).hide(); %> %>
+var battonName = '<%= @button_name %>'
+var postId = '<%= @post.id %>'
+$("#comment-btn-" + postId ).html(battonName)
+$("#post-" + postId).hide();
+

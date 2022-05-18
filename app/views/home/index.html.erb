@@ -1,88 +1,121 @@
 
-<% @posts.each do |post| %>
-  <div class="card container" style="width: 100%;" >
-    <div class="card-body list-group-flush" >
-      <div class="list-group-item card-img-top" >
-        <% if current_user.image.present? %>
-          <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
-        <% else %>
-          <img src="..." alt="...">  
-        <% end %>
 
-        <span class="card-subtitle mb-2 " ><%= current_user.name %></span><br>
-        <span class="card-subtitle mb-2 text-muted "><%= current_user.email %></span>
-        <p class="card-text"><small><%= post.title %></small></p>
-      </div> 
+<div id="posts">
+  <% @posts.each do |post| %>
+  <!----------------------------post------------------->
 
+    <div class="card container" style="width: 55%;" >
+      <div class="card-body list-group-flush" >
+        <div class="list-group-item card-img-top" >
+          <% if current_user.image.present? %>
+            <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
+          <% else %>
+            <img src="..." alt="...">  
+          <% end %>
 
-      <div class="card-title list-group-item" >
+          <span class="card-subtitle mb-2 " ><%= current_user.name %></span><br>
+          <span class="card-subtitle mb-2 text-muted "><%= current_user.email %></span>
+          <p class="card-text"><small><%= post.title %></small></p>
+        </div> 
 
-        <div id="demo<%= post.id %>" class="carousel slide" data-bs-ride="carousel">
-          <!-- The slideshow/carousel -->
-          <div class="carousel-inner">
-
-            <% post.post_attachments.each_with_index do |img, index| %>
-              <% is_active = "active" if index == 0 %>
-              <div class="carousel-item <%= is_active %>">
-                <%= image_tag(img.avatar_url,style: "widh: 100%; height: 300px;", alt: 'Avatar', class: "d-block") %>
-              </div>
-            <% end %>
-          </div>
-          
-          <!-- Left and right controls/icons -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-          </button>
-        </div>
-      </div>
-
-      <div class="card-text", style="display: inline;">
-          <%= link_to (current_user.post_likes.where(post_id: post.id).present? ? 'Unlike' : "Like"), post_like_unlike_path(post), remote: true, id: "like-btn-#{post.id}", class: "card-link text-muted" %>
-           <p id=<%= "post-count-#{post.id}"%>><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
-           Liked By: <%= post.like_by_users %>
-
-            <div>
       
-              <% post.post_comments.each do |form| %>
-                <% if form.comment.present? %>
-                  <% if current_user.image.present? %>
-                    <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
-                  <% else %>
-                    <img src="..." alt="...">  
-                  <% end %>
-                  <%= form.comment %>
-                    <p>
-                     <%= button_to 'Delete', post_post_comment_path(current_user.id, form.id), :method => :delete, data: { confirm: 'Are you sure?' } %>
-                    </p><br>     
-                <% end %>
+      <!-----------------------------slideshow carousel---------------------------->
+        <div class="card-title list-group-item" >
+
+          <div id="demo<%= post.id %>" class="carousel slide" data-bs-ride="carousel">
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+
+              <% post.post_attachments.each_with_index do |img, index| %>
+                <% is_active = "active" if index == 0 %>
+                <div class="carousel-item <%= is_active %>">
+                  <%= image_tag(img.avatar_url,style: "widh: 100%; height: 300px;", alt: 'Avatar', class: "d-block") %>
+                </div>
               <% end %>
             </div>
-             
-          <div > 
-            <%= form_for [ post, post.post_comments.build] do |form| %>
-               <div style="width: 30%";>
-
-                  <%= form.text_field :comment, placeholder: 'Enter Comment', class: 'form-control ' %>
-               </div>  
-
-                <div class="actions">
-                 <%= submit_tag :comment %>
-                </div> 
-            <% end %>
+            
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo<%= post.id %>" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
           </div>
+        </div>
+      
 
-            <!-- <p><strong>share</strong>
-              <%# social_share_button_tag(post.title) %> </p> -->
+      <!-------------------------------like and comment---------------------------->
+        <i class="fa fa-thumbs-up"></i>
+        <div class="card-text", style="display: inline;">
+            <%= link_to (current_user.post_likes.where(post_id: post.id).present? ? 'Unlike' : "Like"), post_like_unlike_path(post), remote: true, id: "like-btn-#{post.id}", class: "card-link text-muted" %>
+            <p id=<%= "post-count-#{post.id}"%>><%= post.post_likes.count %> <%= (post.post_likes.count) == 1 ? 'Like' : 'Likes'%></p>
+            Liked By: <%= post.like_by_users %>
+              
+              
+              <!---------------------------comment and delete-------------------------------->
+            <div>  
+            <button class="show-comment<%= post.id %>">show comment</button>
+              <div id="flip<%= post.id %>">
+                <% post.post_comments.each do |cm|%>
+                  <div class=<%="com_#{cm.id}"%>>
+                      <% if cm.comment.present? %>
+                          <% if cm.user.image.present? && cm.user.image.url.present? %>
+                            <%=  image_tag(cm.user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
+                          <% else %>
+                            <img src="..." alt="...">  
+                          <% end %>
 
-            <p><%# render_shareable :buttons=> ['twitter', 'facebook', 'linkedin'] %></p>
-            <%= render_shareable :url=> 'http://github.com/hermango/' , :facebook=> {:send=> 'true', :url=> 'http://demo.dev'} %>
+                          <%= cm.comment %>
 
-      </div>    
+                          <% if cm.user_id == current_user.id %>
+                          
+                          <p>
+                            <%=  button_to 'Delete', post_post_comment_path(post.id, cm.id), :method => :delete, remote: true, data: { confirm: 'Are you sure?' } %>
+                          </p><br>  
+                          <% end %> 
+                          <hr>
+                      <% end %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+                  <script>
+                  
+                    $(".show-comment<%= post.id %>").click(function(){
+                  
+                      $("#flip<%= post.id %>").toggle();
+                    });
+                  </script>
+
+          <!------------------------------------create comment----------------------->
+            <div class=<%="comment_#{post.id}"%>> 
+              <%= form_for [ post, post.post_comments.build ], remote: true do |form| %>
+                <div style="width: 30%";>
+                    <%= form.text_field :comment, placeholder: 'Enter Comment', class: "form-control content_#{post.id}" %>
+                </div>  
+
+                  <div class="actions">
+                  <%= submit_tag :comment %>
+                  </div> 
+              <% end %>
+            </div>
+
+              <%# <p><strong>share</strong> %>
+                <%#social_share_button_tag(post.title) %> </p>
+
+              <%# <p>render_shareable :buttons=> ['twitter', 'facebook', 'linkedin']</p> %>
+              <%# render_shareable :url=> 'http://github.com/hermango/' , :facebook=> {:send=> 'true', :url=> 'http://demo.dev'} %>
+              
+
+
+
+
+        </div>    
+      </div>
     </div>
-  </div>
 
-  <br>
-<% end %>  
+    <br>
+  <% end %>  
+</div>
+<%= will_paginate @posts %>
