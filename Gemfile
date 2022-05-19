@@ -61,18 +61,27 @@ gem 'carrierwave', '~> 1.0'
 
 gem 'jquery-rails', '~> 4.3'
 
-gem 'client_side_validations'   # i have to work on it
-
-gem 'omniauth-google-oauth2'        # i have to work on it
-
-gem "omniauth-google", "~> 1.0"       # i have to work on it
-gem "omniauth-rails_csrf_protection", "~> 0.1.2"     # i have to work on it
+gem 'client_side_validations'        
 
 gem 'activeadmin'
 
 gem 'will_paginate', '~> 3.3.0'
 
 gem 'social-share-button'
+
+gem 'omniauth-google-oauth2'   
+
+gem 'dotenv-rails'
+
+gem "omniauth-rails_csrf_protection" 
+
+gem "omniauth-google", "~> 1.0"  
+
+gem 'omniauth-twitter'
+
+gem 'activerecord-session_store'
+
+
 
 
 

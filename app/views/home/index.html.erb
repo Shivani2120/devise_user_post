@@ -7,14 +7,14 @@
     <div class="card container" style="width: 55%;" >
       <div class="card-body list-group-flush" >
         <div class="list-group-item card-img-top" >
-          <% if current_user.image.present? %>
-            <%=  image_tag(current_user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
+          <% if post.user.image.present? %>
+            <%=  image_tag(post.user.image_url, width: "40", height: "40", alt: 'Image', class:"rounded-circle") %>
           <% else %>
             <img src="..." alt="...">  
           <% end %>
 
-          <span class="card-subtitle mb-2 " ><%= current_user.name %></span><br>
-          <span class="card-subtitle mb-2 text-muted "><%= current_user.email %></span>
+          <span class="card-subtitle mb-2 " ><%= post.user.name %></span><br>
+          <span class="card-subtitle mb-2 text-muted "><%= post.user.email %></span>
           <p class="card-text"><small><%= post.title %></small></p>
         </div> 
 
@@ -101,14 +101,13 @@
               <% end %>
             </div>
 
-              <%# <p><strong>share</strong> %>
-                <%#social_share_button_tag(post.title) %> </p>
-
-              <%# <p>render_shareable :buttons=> ['twitter', 'facebook', 'linkedin']</p> %>
-              <%# render_shareable :url=> 'http://github.com/hermango/' , :facebook=> {:send=> 'true', :url=> 'http://demo.dev'} %>
-              
 
 
+          <!-----------------------------------share button-------------------------->
+
+              <p><strong>Share</strong>
+                <%= social_share_button_tag(post.title) %> </p>
+                <%#social_share_button_tag(post.title, :url => "") %>
 
 
         </div>    

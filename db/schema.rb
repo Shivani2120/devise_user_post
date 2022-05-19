@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_16_065403) do
+ActiveRecord::Schema.define(version: 2022_05_19_114858) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -75,6 +75,15 @@ ActiveRecord::Schema.define(version: 2022_05_16_065403) do
     t.string "description"
   end
 
+  create_table "sessions", force: :cascade do |t|
+    t.string "session_id", null: false
+    t.text "data"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["session_id"], name: "index_sessions_on_session_id", unique: true
+    t.index ["updated_at"], name: "index_sessions_on_updated_at"
+  end
+
   create_table "user_likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -93,6 +102,8 @@ ActiveRecord::Schema.define(version: 2022_05_16_065403) do
     t.string "name"
     t.string "image"
     t.string "contact"
+    t.string "uid"
+    t.string "provider"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
