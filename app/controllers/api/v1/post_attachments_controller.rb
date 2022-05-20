@@ -1,4 +1,4 @@
-class PostAttachmentsController < ApplicationController
+class Api::V1::PostAttachmentsController < Api::V1::ApplicationController
   def create
     @post = Post.find(params[:post_id])
     @post_attachment = @post.post_attachments.new(post_attachment_params)

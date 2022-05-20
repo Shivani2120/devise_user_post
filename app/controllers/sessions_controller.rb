@@ -19,7 +19,6 @@ class SessionsController < ApplicationController
 
 	def twitter
 		# You need to implement the method below in your model (e.g. app/models/user.rb)
-		debugger
 		@user = User.from_omniauth(request.env["omniauth.auth"])
 	
 		if @user.persisted?

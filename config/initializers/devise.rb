@@ -312,6 +312,6 @@ Devise.setup do |config|
   config.scoped_views = true
 
  
-  config.omniauth :twitter, "i3LOWKg9xLE7qJpfzMEY6ZKPF" ,"8yf1I9iIFo8NyD5Kmw11agjVedBmdctwO4c2iScsp0oqxapuuh"
+  config.omniauth :twitter, "1523601259651289088-7CpzIl6yJ0GOM3CNhe0THfwo6iyroF" ,"JMQ5NJxFWYMxGL88U6gVzTtDkFi9raq8Yihh3o1UZuaSR"
 
 end
