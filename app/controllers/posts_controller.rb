@@ -32,9 +32,13 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         if @post.save
-          params[:post][:avatar].each do |a|
-            @post.post_attachments.create!(:avatar => a)
-        end
+          if params[:post][:avatar].present?
+              params[:post][:avatar].each do |a|
+                @post.post_attachments.create!(:avatar => a)
+              end
+          else
+            puts "posts is unavailabel"
+          end
           format.html { redirect_to post_url(@post) }
         else
           format.html { render :new }

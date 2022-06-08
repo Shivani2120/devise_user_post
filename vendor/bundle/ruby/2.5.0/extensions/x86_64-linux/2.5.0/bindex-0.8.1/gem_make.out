@@ -1,0 +1,15 @@
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+/home/pc/.rvm/rubies/ruby-2.5.3/bin/ruby -I /home/pc/.rvm/rubies/ruby-2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20220608-14618-1dkqbjl.rb extconf.rb
+creating Makefile
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.so
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.so ./.gem.20220608-14618-avn5cj/skiptrace/internal

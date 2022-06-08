@@ -1,0 +1,15 @@
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/regexp_property_values-1.3.0/ext/regexp_property_values
+/home/pc/.rvm/rubies/ruby-2.5.3/bin/ruby -I /home/pc/.rvm/rubies/ruby-2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20220608-14618-14n5oyl.rb extconf.rb
+creating Makefile
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/regexp_property_values-1.3.0/ext/regexp_property_values
+make "DESTDIR=" clean
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/regexp_property_values-1.3.0/ext/regexp_property_values
+make "DESTDIR="
+compiling regexp_property_values.c
+linking shared-object regexp_property_values/regexp_property_values.so
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/regexp_property_values-1.3.0/ext/regexp_property_values
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 regexp_property_values.so ./.gem.20220608-14618-1sug5h8/regexp_property_values

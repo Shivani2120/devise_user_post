@@ -30,7 +30,6 @@ class Api::V1::PostsController < Api::V1::ApplicationController
 
     # POST /posts or /posts.json
     def create
-      debugger
       @post = Post.new(post_params)
       @post = current_user.posts.new(post_params)
 

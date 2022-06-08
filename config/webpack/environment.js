@@ -1,17 +1,11 @@
-const {environment} = require('@rails/webpacker');
-const coffee =  require('./loaders/coffee')
-const erb = require('./loaders/erb')
-    const webpack = require('webpack');
+const { environment } = require('@rails/webpacker')
 
-    environment.plugins.prepend('Provide',
-        new webpack.ProvidePlugin({
-            $: 'jquery/src/jquery',
-            jquery: 'jquery/src/jquery',
-            jQuery: 'jquery/src/jquery', 'window.jQuery': 'jquery/src/jquery',
-            moment: 'moment'
-        })
-    );
+module.exports = environment
 
-    environment.loaders.prepend('erb', erb)
-environment.loaders.prepend('coffee', coffee)
-module.exports = environment;
+const webpack = require('webpack')
+environment.plugins.prepend('Provide',
+  new webpack.ProvidePlugin({
+    $: 'jquery/src/jquery',
+    jQuery: 'jquery/src/jquery'
+  })
+)

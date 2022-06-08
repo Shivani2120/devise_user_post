@@ -4,7 +4,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
-gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
+gem 'rails', '>= 6.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
@@ -59,7 +59,9 @@ gem 'devise'
 
 gem 'carrierwave', '~> 1.0'
 
-gem 'jquery-rails', '~> 4.3'
+# gem 'jquery-rails', '~> 4.3'
+gem 'jquery-rails'
+
 
 gem 'client_side_validations'        
 
@@ -80,6 +82,16 @@ gem "omniauth-google", "~> 1.0"
 gem 'omniauth-twitter'
 
 gem 'activerecord-session_store'
+
+group :development, :test do
+  gem 'rspec-rails', ">= 3.9.0"
+
+  gem 'shoulda-matchers'
+
+  gem "factory_bot_rails"
+
+end
+
 
 
 

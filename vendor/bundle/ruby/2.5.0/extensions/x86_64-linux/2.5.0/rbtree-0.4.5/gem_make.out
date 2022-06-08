@@ -1,0 +1,147 @@
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/rbtree-0.4.5
+/home/pc/.rvm/rubies/ruby-2.5.3/bin/ruby -I /home/pc/.rvm/rubies/ruby-2.5.3/lib/ruby/site_ruby/2.5.0 -r ./siteconf20220608-14618-1s6kj5y.rb extconf.rb
+checking for rb_exec_recursive() in ruby.h... yes
+checking for rb_exec_recursive_paired() in ruby.h... yes
+checking for rb_proc_lambda_p() in ruby.h... yes
+checking for rb_ary_resize() in ruby.h... yes
+checking for rb_obj_hide() in ruby.h... yes
+checking for rb_safe_level() in ruby.h... yes
+checking for rb_cData() in ruby.h... yes
+creating Makefile
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/rbtree-0.4.5
+make "DESTDIR=" clean
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/rbtree-0.4.5
+make "DESTDIR="
+compiling dict.c
+compiling rbtree.c
+In file included from /home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/ruby.h:2040,
+                 from /home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby.h:33,
+                 from rbtree.c:5:
+rbtree.c: In function ‘rbtree_each_pair’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:672:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_each_key’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:696:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_each_value’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:720:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_reverse_each’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:737:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_remove_if’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:943:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_reject_bang’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:980:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_select_bang’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:996:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_select_if’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE)’ {aka ‘long unsigned int (*)(long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:1030:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, 0, NULL, rbtree_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: In function ‘rbtree_bound’:
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:229:53: warning: cast between incompatible function types from ‘VALUE (*)(VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int)’} to ‘VALUE (*)(VALUE,  VALUE,  VALUE)’ {aka ‘long unsigned int (*)(long unsigned int,  long unsigned int,  long unsigned int)’} [-Wcast-function-type]
+     rb_enumeratorize_with_size(obj, id, argc, argv, (rb_enumerator_size_func *)(size_fn))
+                                                     ^
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:232:5: note: in expansion of macro ‘rb_enumeratorize_with_size’
+     rb_enumeratorize_with_size((obj), ID2SYM(rb_frame_this_func()), \
+     ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/pc/.rvm/rubies/ruby-2.5.3/include/ruby-2.5.0/ruby/intern.h:236:13: note: in expansion of macro ‘SIZED_ENUMERATOR’
+      return SIZED_ENUMERATOR(obj, argc, argv, size_fn);  \
+             ^~~~~~~~~~~~~~~~
+rbtree.c:1552:5: note: in expansion of macro ‘RETURN_SIZED_ENUMERATOR’
+     RETURN_SIZED_ENUMERATOR(self, argc, argv, rbtree_bound_size);
+     ^~~~~~~~~~~~~~~~~~~~~~~
+rbtree.c: At top level:
+cc1: warning: unrecognized command line option ‘-Wno-self-assign’
+cc1: warning: unrecognized command line option ‘-Wno-constant-logical-operand’
+cc1: warning: unrecognized command line option ‘-Wno-parentheses-equality’
+linking shared-object rbtree.so
+
+current directory: /home/pc/Desktop/Basics/devise_user_post/vendor/bundle/ruby/2.5.0/gems/rbtree-0.4.5
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 rbtree.so ./.gem.20220608-14618-1d92nap
